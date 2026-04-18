@@ -36,25 +36,33 @@ const lessonWords = (level_no) => {
         .then(obj => displayWords(obj.data))
 
 
-
 }
 
-const displayWords = (data) => {
-    console.log(data)
+const displayWords = (array) => {
+    console.log(array)
 
-    const div = document.createElement('div');
+
 
     const wordContainer = document.getElementById('wordContainer');
 
-    div.innerHTML=`<div class="card-body text-center">
-                    <h2 class="font-bold text-xl">${word}</h2>
+    array.forEach(element => {
+        const div = document.createElement('div');
+
+        div.classList("card-body text-center");
+
+        div.innerHTML = `
+                    <h2 class="font-bold text-xl">${element.word}</h2>
                     <p>Meaning / Pronunciation</p>
-                    <h1>${meaning}/${pronunciation}</h1>
+                    <h1>${element.meaning}/${element.pronunciation}</h1>
                     <div class="mr-100">
                         <a href=""><i class="fa-solid fa-link"></i></a>
                     </div>
-                </div>`
- wordContainer.appendChild(div);
+                `
+        wordContainer.appendChild(div);
+
+    });
+
+
 
 
 
