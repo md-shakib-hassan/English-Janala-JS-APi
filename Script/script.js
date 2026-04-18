@@ -17,11 +17,16 @@ const displayLesson = (array) => {
 
         const link = document.createElement('div');
 
-        link.innerHTML = `  <a href="" onclick="lessonWords(${element.level_no})" class="border border-[#422AD5] text-[#422AD5] p-1 rounded-sm "><i
-                   class="fa-solid fa-book"></i>lesson-${element.level_no} </a>`
+        link.innerHTML = `
+                    <button onclick="lessonWords(${element.level_no})" class="border border-[#422AD5] text-[#422AD5] p-1 rounded-sm "><i
+                    class="fa-solid fa-book"></i>level-${element.level_no}</button>`
         lessonContainer.appendChild(link);
 
+        //  console.log(element.level_no);
+
     });
+
+   
 }
 
 // here start level words showing when click level button 
@@ -41,14 +46,13 @@ const lessonWords = (level_no) => {
 const displayWords = (array) => {
     console.log(array)
 
-
-
     const wordContainer = document.getElementById('wordContainer');
 
     array.forEach(element => {
         const div = document.createElement('div');
 
-        div.classList("card-body text-center");
+        // div.classList("card-body text-center");
+        div.classList.add("card-body", "text-center","bg-white","rounded-sm");
 
         div.innerHTML = `
                     <h2 class="font-bold text-xl">${element.word}</h2>
@@ -61,10 +65,6 @@ const displayWords = (array) => {
         wordContainer.appendChild(div);
 
     });
-
-
-
-
 
 }
 
